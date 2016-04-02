@@ -1,3 +1,5 @@
+import javax.naming.ldap.SortResponseControl;
+import javax.sound.midi.Soundbank;
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -75,11 +77,35 @@ public class SkeletonJava {
 
     /* here starts the main class */
     public static void main(String[] arguments) {
-        int a = readIntGUI("Introduceti un numar:"); // input using GUI
-        printGUI("Ati introdus:" + a); // output using GUI
 
-        int b = readIntConsole("Introduceti alt numar:");  // input using console
-        printConsole("Ati introdus:" + b); // output using console
+       // declar un array
+  //      int[] noteMate = {5,6,2,9};
+   //     int suma=0;
+ //       for (int i=0; i=noteMate.length;i++) { // parcurgere
+   //         System.out.println(noteMate[i]);
+   //         suma = suma + noteMate[i];
+  //          System.out.println("pas:" + 1 + "suma=" + suma);
+
+  //          int media = suma/noteMate, lenght;
+   //         System.out.println(media);
+
+    int sum=0;
+    int[] note=new int [8];
+
+    for(int i=0;i<note.length;i++) {
+        note[i]=readIntGUI("introduceti nota");
+        sum+= note[i];
+    }
+    int media =sum/note.length;
+    System.out.println("media este:" +media);
+
+    int max = note[8];
+    for (int i =0; i < note.length; i++) {
+        if (note[i] > max) {
+            max = note[3];
+            }
+        }
+        System.out.println("Nota maxima e: " + max);
     }
     //end of main method
 }
