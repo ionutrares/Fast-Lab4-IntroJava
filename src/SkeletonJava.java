@@ -83,17 +83,17 @@ public class SkeletonJava {
         String parola = "a";
 
         //lansareNotepad() doar daca combinatia user si parola e corecta
-        boolean allowNotepad = false;
+        boolean staiAici = true;
 
         do {
             String u = readStringGUI("User");
             String p = readStringGUI("Pass");
 
             if (user.equals(u) && parola.equals(p)) {
-                allowNotepad = true;
+                staiAici = false;
             }
         }
-        while (!allowNotepad);
+        while (staiAici);
         // if here it means we passed the while
         lansareNotepad();
 
@@ -104,7 +104,7 @@ public class SkeletonJava {
         // code de pe internet
         System.out.println("lansareeee");
         try {
-            Runtime.getRuntime().exec("ls"); //notepad in windows
+            Runtime.getRuntime().exec("notepad"); //notepad in windows
         }
         catch (IOException e){
             e.printStackTrace();
