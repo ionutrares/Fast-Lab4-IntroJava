@@ -1,6 +1,7 @@
 import javax.naming.ldap.SortResponseControl;
 import javax.sound.midi.Soundbank;
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -78,35 +79,36 @@ public class SkeletonJava {
     /* here starts the main class */
     public static void main(String[] arguments) {
 
-       // declar un array
-  //      int[] noteMate = {5,6,2,9};
-   //     int suma=0;
- //       for (int i=0; i=noteMate.length;i++) { // parcurgere
-   //         System.out.println(noteMate[i]);
-   //         suma = suma + noteMate[i];
-  //          System.out.println("pas:" + 1 + "suma=" + suma);
+        String user = "ana";
+        String parola = "a";
 
-  //          int media = suma/noteMate, lenght;
-   //         System.out.println(media);
+        //lansareNotepad() doar daca combinatia user si parola e corecta
+        boolean allowNotepad = false;
 
-    int sum=0;
-    int[] note=new int [8];
+        do {
+            String u = readStringGUI("User");
+            String p = readStringGUI("Pass");
 
-    for(int i=0;i<note.length;i++) {
-        note[i]=readIntGUI("introduceti nota");
-        sum+= note[i];
-    }
-    int media =sum/note.length;
-    System.out.println("media este:" +media);
-
-    int max = note[8];
-    for (int i =0; i < note.length; i++) {
-        if (note[i] > max) {
-            max = note[3];
+            if (user.equals(u) && parola.equals(p)) {
+                allowNotepad = true;
             }
         }
-        System.out.println("Nota maxima e: " + max);
+        while (!allowNotepad);
+        // if here it means we passed the while
+        lansareNotepad();
+
     }
     //end of main method
+
+    public static void lansareNotepad() {
+        // code de pe internet
+        System.out.println("lansareeee");
+        try {
+            Runtime.getRuntime().exec("ls"); //notepad in windows
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
 }
 // end of class
